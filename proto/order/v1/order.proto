@@ -1,0 +1,25 @@
+syntax = "proto3";
+package order.v1;
+// option go_package=".;order";
+
+message Item {
+  string name = 1;
+
+}
+
+message OrderServiceCreateRequest {
+  int64 user_id = 1;
+  repeated Item items = 2;
+  float total_price = 3;
+
+}
+
+message OrderServiceCreateResponse {
+  int64 order_id = 1;
+
+}
+
+service OrderService {
+  rpc Create (OrderServiceCreateRequest) returns (OrderServiceCreateResponse);
+
+}
