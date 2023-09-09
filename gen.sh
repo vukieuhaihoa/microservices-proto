@@ -31,12 +31,8 @@ case $SERVICE_NAME in
 esac
 echo "Lint and generate proto done!"
 
-# go mod init for 
-cd gen/go/${SERVICE_NAME}
-go mod init \
-  github.com/vukieuhaihoa/microservices-proto/gen/go/${SERVICE_NAME}
+# cd gen/go/${SERVICE_NAME}
 go mod tidy
 
-cd ../../../
 pwd
 
