@@ -1,4 +1,4 @@
-module github.com/vukieuhaihoa/microservices-proto
+module github.com/vukieuhaihoa/microservices-proto/gen/go/order
 
 go 1.21.1
 
