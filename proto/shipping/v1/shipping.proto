@@ -1,0 +1,3 @@
+syntax = "proto3";
+package shipping.v1;
+// option go_package = "github.com/vukieuhaihoa/microservices-proto/shipping";
