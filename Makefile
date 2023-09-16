@@ -22,4 +22,4 @@ buf-lint-shipping:
 	buf lint --path proto/shipping
 
 gen-order:
-	./gen.sh order
+	./scripts/buf-gen.sh order
