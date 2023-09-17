@@ -14,8 +14,16 @@ jobs:
       REF: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
-      - name: Print current branch name
+      # - name: Print current branch name
+      #   run: |
+      #     echo "base ref: ${BASE_REF}"
+      #     echo "head ref: ${HEAD_REF}"
+      #     echo "ref: ${REF}"
+      - name: Run update permissions scrips to auto tag
         run: |
-          echo "base ref: ${BASE_REF}" 
-          echo "head ref: ${HEAD_REF}" 
-          echo "ref: ${REF}"
+          chmod +x ./.github/workflows/scripts/tag-gen.sh \
+          chmod +x ./.github/workflows/scripts/tag.sh
+      - name: Trigger when merged to develop branch
+        if: ${{github.base_ref == 'develop' && github.event.pull_request.merged == true }}
+        run: |
+          ./.github/workflows/tag.sh -s order -v patch
