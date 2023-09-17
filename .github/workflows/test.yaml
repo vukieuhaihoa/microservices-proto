@@ -21,7 +21,7 @@ jobs:
       #     echo "ref: ${REF}"
       - name: Run update permissions scrips to auto tag
         run: |
-          chmod +x ./.github/workflows/scripts/tag-gen.sh \
+          chmod +x ./.github/workflows/scripts/tag-gen.sh 
           chmod +x ./.github/workflows/scripts/tag.sh
       - name: Trigger when merged to develop branch
         if: ${{github.base_ref == 'develop' && github.event.pull_request.merged == true }}
