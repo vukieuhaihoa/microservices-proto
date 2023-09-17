@@ -1,4 +1,4 @@
-name: Test
+name: Auto gen tag
 on:
   push:
     branches:
@@ -21,8 +21,7 @@ jobs:
           echo "ref: ${REF}"
       - name: Run update permissions scrips to auto tag
         run: |
-          chmod +x ./.github/workflows/scripts/tag-gen.sh 
-          chmod +x ./.github/workflows/scripts/tag.sh
+          chmod +x ./.github/workflows/scripts/tag-gen.sh
       - name: Trigger when merged to develop branch
         run: |
           ./.github/workflows/tag.sh -s order -v patch
