@@ -65,13 +65,12 @@ function ready_to_run() {
 #################################
 # Entry point
 #################################
-chmod +x ./tag-gen.sh
 ready_to_run
 # fetch all tags from repo
 git fetch --all --tags
-newest_tag=$(./tag-gen.sh $SERVICE $VERSION)
+newest_tag=$(./.github/workflows/scripts/tag-gen.sh $SERVICE $VERSION)
 
 # git tag
-git checkout main
+git checkout develop
 git tag $newest_tag
 git push origin $newest_tag
