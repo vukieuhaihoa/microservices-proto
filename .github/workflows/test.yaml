@@ -1,0 +1,21 @@
+name: Test
+on:
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+jobs:
+  push:
+    name: Get name of current branch
+    runs-on: ubuntu-latest
+    env:
+      BASE_REF: ${{ github.base_ref }}
+      HEAD_REF: ${{ github.head_ref }}
+      REF: ${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print current branch name
+        run: |
+          echo "base ref: ${BASE_REF}" 
+          echo "head ref: ${HEAD_REF}" 
+          echo "ref: ${REF}"
