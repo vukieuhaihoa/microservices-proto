@@ -24,4 +24,4 @@ jobs:
           chmod +x ./.github/workflows/scripts/tag-gen.sh
       - name: Trigger when merged to develop branch
         run: |
-          ./.github/workflows/tag.sh -s order -v patch
+          ./.github/workflows/tag-gen.sh -s order -v patch
