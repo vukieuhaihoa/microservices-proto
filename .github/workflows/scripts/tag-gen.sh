@@ -3,7 +3,7 @@
 # This script to gen next tag version of service
 
 # Exit when error occur
-set -e
+set -euo pipefail
 
 SERVICE=""
 VERSION=""

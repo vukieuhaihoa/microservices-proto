@@ -2,15 +2,16 @@ syntax = "proto3";
 package order.v1;
 // option go_package=".;order";
 
-message Item {
-  string name = 1;
+message OrderItem {
+  string produc_code = 1;
+  float unit_price = 2;
+  int32 quantity = 3;
 
 }
 
 message OrderServiceCreateRequest {
   int64 user_id = 1;
-  repeated Item items = 2;
-  float total_price = 3;
+  repeated OrderItem order_items = 2;
 
 }
 
@@ -19,7 +20,19 @@ message OrderServiceCreateResponse {
 
 }
 
+message OrderServiceGetRequest {
+  int64 order_id = 1;
+
+}
+
+message OrderServiceGetResponse {
+  int64 user_id = 1;
+  repeated OrderItem order_items = 2;
+
+}
+
 service OrderService {
   rpc Create (OrderServiceCreateRequest) returns (OrderServiceCreateResponse);
+  rpc Get (OrderServiceGetRequest) returns (OrderServiceGetResponse);
 
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Exit on error
-set -e
+set -euo pipefail
 
 # Helper func to go one path
 # Usage: gotoDir ./proto/shipping/v1
@@ -11,19 +11,17 @@ function gotoDir() {
 }
 
 # Helper func to go to the previous path
-# Usage: leaveDir 
+# Usage: leaveDir
 function leaveDir() {
   popd >/dev/null
 }
 
-
 gotoDir ./proto/shipping/v1
-echo xamlol > test
+echo xamlol >test
 
 sleep 5
 
-if [ -e test ]
-then
+if [ -e test ]; then
   echo "Exist file test!!!"
 else
   echo "Not exist file test!~!!"
@@ -31,4 +29,3 @@ fi
 
 rm -rf test
 leaveDir
-

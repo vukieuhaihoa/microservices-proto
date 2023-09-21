@@ -7,7 +7,7 @@ SERVICE_VERSION=$2
 RELEASE_VERSION=$3
 
 # When a query returns a non-zero status, the -e flag stops the script.
-set -e
+set -euo pipefail
 
 #######################################
 # Go to path
